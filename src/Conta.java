@@ -4,32 +4,28 @@ public class Conta {
     private double saldo;
     private String cpfTitular;
 
+    public Conta() {
+        this("", "", 0.0, "");
+    }
+
     public Conta(String agencia, String numero, double saldo, String cpfTitular) {
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
         this.cpfTitular = cpfTitular;
-
     }
 
-    public Conta(){
-        this("","",0.0,"");
-    }
-
-    @Override
     public String toString() {
-        return "Conta da agência " + agencia + ", de número " + numero + ", com saldo " + saldo + ", e pertencente ao cliente de CPF " + cpfTitular;
+        return "Conta da agência "+this.agencia+", de número "
+                +this.numero+" com saldo " + this.saldo
+                +" e pertencente ao cliente de CPF "+ this.cpfTitular;
     }
 
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
     public double depositar(double valor) {
-        if (valor < 0){
-            System.out.println("Insira um valor maior do que 0");
-            return this.saldo;
-        }
         this.saldo+=valor;
         return this.saldo;
     }
@@ -39,5 +35,21 @@ public class Conta {
             this.saldo-= valor;
         }
         return this.saldo;
+    }
+
+    public String getNumeroAgencia() {
+        return this.agencia;
+    }
+
+    public String getNumeroConta() {
+        return this.numero;
+    }
+
+    public void setNumeroAgencia(String numeroAg) {
+        this.agencia = numeroAg;
+    }
+
+    public void setNumeroConta(String numeroConta) {
+        this.numero = numeroConta;
     }
 }
